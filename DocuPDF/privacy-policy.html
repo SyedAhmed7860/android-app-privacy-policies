@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Privacy Policy for DocuPDF: Scanner & PDF Tools. Learn how your data and documents are handled locally on your Android device. Fully compliant with Google Play Store Developer Policies.">
+  <title>Privacy Policy | DocuPDF - Scanner & PDF Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-link">
+        <div class="brand-icon">D</div>
+        <div class="brand-text-group">
+          <span class="brand-title">DocuPDF</span>
+          <span class="brand-subtitle">Scanner & PDF Tools</span>
+        </div>
+      </a>
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="privacy-policy.html" class="nav-link active">Privacy Policy</a></li>
+          <li><a href="terms.html" class="nav-link">Terms of Use</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content legal-content">
+    <article class="legal-article">
+      <header class="legal-header">
+        <h1>Privacy Policy</h1>
+        <div class="legal-meta">
+          <span><strong>Effective Date:</strong> October 4, 2026</span>
+          <span><strong>Application:</strong> DocuPDF &ndash; Scanner &amp; PDF Tools</span>
+          <span><strong>Package Name:</strong> <code>com.docupdf.app</code></span>
+          <span><strong>Developer:</strong> Syed Ahmed</span>
+        </div>
+      </header>
+
+      <div class="callout-box">
+        <p><strong>Google Play User Data &amp; Privacy Commitment:</strong> DocuPDF is engineered on a strict <strong>100% on-device, offline-first</strong> architecture. Your camera scans, documents, photos, OCR extracted text, and files are processed strictly within your device's local memory and internal storage. We do not operate external cloud servers, and we never collect, upload, sell, or transmit your documents.</p>
+      </div>
+
+      <!-- Section 1 -->
+      <section class="legal-section">
+        <h2>1. Introduction &amp; Scope</h2>
+        <p>
+          This Privacy Policy describes the information practices of <strong>DocuPDF (&ldquo;we&rdquo;, &ldquo;our&rdquo;, or &ldquo;us&rdquo;)</strong>, developed by <strong>Syed Ahmed</strong>, relating to the mobile application <strong>DocuPDF: Scanner &amp; PDF Tools</strong> (Package: <code>com.docupdf.app</code>), distributed on Google Play.
+        </p>
+        <p>
+          We understand that document scanning applications process sensitive personal, legal, financial, and business records—such as contracts, identity cards, tax forms, receipts, and invoices. DocuPDF is intentionally architected to operate without requiring any user registration, user profile, remote database, or cloud server synchronization.
+        </p>
+      </section>
+
+      <!-- Section 2 -->
+      <section class="legal-section">
+        <h2>2. Technical Architecture &amp; On-Device Processing</h2>
+        <p>DocuPDF adheres strictly to the following privacy and security principles:</p>
+        <ul>
+          <li><strong>No User Account or Registration:</strong> You are never asked to create an account, enter your name, email, phone number, or social media logins to use DocuPDF.</li>
+          <li><strong>Zero Cloud File Storage:</strong> We do not operate backend servers or cloud storage for user files. All documents you scan or import reside exclusively in your device's local app storage.</li>
+          <li><strong>On-Device Machine Learning &amp; Computer Vision:</strong> Document edge detection, boundary cropping, perspective correction, filter enhancement, and OCR (Optical Character Recognition) are computed entirely on-device using Google Play Services ML Kit and local Android libraries. No camera frames or document images are transmitted over a network.</li>
+          <li><strong>Local PDF Generation:</strong> Merging, splitting, compressing, watermarking, signing, and password encryption of PDF files execute locally using Android native frameworks.</li>
+        </ul>
+      </section>
+
+      <!-- Section 3 -->
+      <section class="legal-section">
+        <h2>3. Android Permissions &amp; Data Safety Compliance</h2>
+        <p>In full compliance with Google Play Developer Program Policies, DocuPDF only requests permissions strictly essential to deliver core document scanning and PDF features:</p>
+
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>Permission</th>
+                <th>API / Mechanism</th>
+                <th>Purpose &amp; Handling</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Camera</strong></td>
+                <td><code>android.permission.CAMERA</code> &amp; Google ML Kit Scanner</td>
+                <td>
+                  <strong>Purpose:</strong> Used solely when you tap &ldquo;Scan Document&rdquo; to capture physical papers, receipts, or notes.<br>
+                  <strong>Data Safety:</strong> Live camera frames are analyzed transiently in volatile RAM. No video or audio is recorded. Images are saved only to your local device storage.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Storage / Media Files</strong></td>
+                <td>Android Scoped Storage &amp; SAF File Picker</td>
+                <td>
+                  <strong>Purpose:</strong> Used to import images/PDFs from your gallery or save generated PDF files to your device.<br>
+                  <strong>Data Safety:</strong> We adhere to Android Scoped Storage best practices. The app does not request broad file access (<code>MANAGE_EXTERNAL_STORAGE</code> is NOT used). We only access the exact files you explicitly choose to import or export.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Internet Access</strong></td>
+                <td><code>android.permission.INTERNET</code></td>
+                <td>
+                  <strong>Purpose:</strong> Required exclusively for third-party SDKs: Google Mobile Ads (AdMob) in the free version and Google Play Billing for in-app purchases.<br>
+                  <strong>Data Safety:</strong> The core DocuPDF application code never uses internet access to transfer user files, document images, or OCR text.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4 -->
+      <section class="legal-section">
+        <h2>4. Third-Party Services &amp; Google SDKs</h2>
+        <p>DocuPDF integrates certified, industry-standard Google Play SDKs:</p>
+
+        <h3>A. Google Play Services ML Kit (Document Scanner)</h3>
+        <p>
+          DocuPDF uses Google's official ML Kit Document Scanner (<code>play-services-mlkit-document-scanner</code>) to provide high-precision paper detection, automatic cropping, and perspective correction. This service processes camera frames <strong>100% locally on-device</strong> without sending your scanned photos to any Google cloud server.
+        </p>
+
+        <h3>B. Google AdMob (Google Mobile Ads)</h3>
+        <p>
+          The free version of DocuPDF displays advertisements powered by Google AdMob. AdMob may automatically collect non-personally identifiable diagnostic and advertising data in accordance with Google's privacy standards, including:
+        </p>
+        <ul>
+          <li>Device identifiers (such as Android Advertising ID / AAID).</li>
+          <li>General hardware characteristics (device model, Android OS version, language, cellular carrier).</li>
+          <li>Ad interaction metrics (impressions, clicks, error logs).</li>
+          <li>Coarse IP address (used for fraud prevention and approximate regional ad serving).</li>
+        </ul>
+        <p>
+          <strong>Ad-Free Experience:</strong> Users who upgrade to <strong>DocuPDF Lifetime Pro</strong> enjoy an ad-free experience. When Pro is active, all banner and interstitial ad requests are completely disabled.
+        </p>
+        <p>
+          Learn more:
+          <br>
+          &bull; <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Google Privacy Policy</a>
+          <br>
+          &bull; <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer">How Google uses information from sites or apps</a>
+        </p>
+
+        <h3>C. Google Play In-App Billing</h3>
+        <p>
+          DocuPDF provides an optional one-time purchase (&ldquo;Lifetime Pro&rdquo;) to unlock premium features and permanently remove advertisements. All transactions are processed directly by Google Play.
+        </p>
+        <ul>
+          <li>We <strong>never</strong> collect, receive, or store credit card details, debit card details, bank information, or billing addresses.</li>
+          <li>Google Play processes all payment data under the <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener noreferrer">Google Play Terms of Service</a>.</li>
+          <li>DocuPDF only receives a cryptographically signed purchase token from Google Play Services to grant and restore your Lifetime Pro entitlement.</li>
+        </ul>
+      </section>
+
+      <!-- Section 5 -->
+      <section class="legal-section">
+        <h2>5. Information We Do NOT Collect (Zero Data Collection Policy)</h2>
+        <p>In accordance with Google Play's Data Safety Declaration, DocuPDF does <strong>NOT</strong> collect, share, or sell any of the following:</p>
+        <ul>
+          <li>Images, scans, or contents of your documents.</li>
+          <li>Extracted OCR text or recognized words.</li>
+          <li>Passwords set on encrypted PDF files.</li>
+          <li>Digital signatures placed on documents.</li>
+          <li>Personal user identification (Name, physical address, national ID, phone number).</li>
+          <li>Precise GPS location data.</li>
+          <li>Contacts, phone book, SMS, or audio recordings.</li>
+        </ul>
+      </section>
+
+      <!-- Section 6 -->
+      <section class="legal-section">
+        <h2>6. Data Retention, Storage &amp; Deletion</h2>
+        <p>Because all data is maintained exclusively on your local device:</p>
+        <ul>
+          <li><strong>User Custody:</strong> You can edit, reorder, or delete any scanned page or saved document inside the app at any time. When deleted in the app, the file is immediately erased from local storage.</li>
+          <li><strong>App Uninstallation:</strong> Uninstalling DocuPDF or clearing the application data in Android Settings will permanently remove all documents held in the app's private sandbox storage. We advise exporting your important PDFs to device storage before uninstalling.</li>
+        </ul>
+      </section>
+
+      <!-- Section 7 -->
+      <section class="legal-section">
+        <h2>7. Data Security</h2>
+        <p>
+          We implement rigorous security controls to keep your files safe:
+        </p>
+        <ul>
+          <li>Files are stored in Android app-private internal storage, secured by Linux file permissions and Android OS sandbox isolation.</li>
+          <li>Document sharing uses secure Android <code>FileProvider</code> with temporary, grantable content URIs (<code>content://</code>), preventing unauthorized external file access.</li>
+          <li>Encrypted PDF files utilize standard PDF encryption algorithms executed directly on your device.</li>
+        </ul>
+      </section>
+
+      <!-- Section 8 -->
+      <section class="legal-section">
+        <h2>8. Children&rsquo;s Privacy Policy (COPPA / GDPR-K Compliant)</h2>
+        <p>
+          DocuPDF is a general productivity tool suitable for general audiences and does not knowingly collect personal information from children under the age of 13 (or 16 in the European Economic Area). If you believe a child has provided personal information through our app or third-party ad services, please contact us immediately, and we will take appropriate measures.
+        </p>
+      </section>
+
+      <!-- Section 9 -->
+      <section class="legal-section">
+        <h2>9. User Rights (GDPR &amp; CCPA/CPRA)</h2>
+        <p>
+          Under international privacy frameworks including GDPR (General Data Protection Regulation) and CCPA/CPRA (California Consumer Privacy Act):
+        </p>
+        <ul>
+          <li><strong>Right of Access &amp; Portability:</strong> All documents remain on your device and can be exported as standard PDF or JPEG files at any time.</li>
+          <li><strong>Right of Erasure:</strong> Deleting documents inside the app immediately erases them from device storage.</li>
+          <li><strong>Advertising Privacy:</strong> You can reset or delete your Android Advertising ID at any time in Android system settings (<em>Settings &gt; Google &gt; Ads &gt; Delete advertising ID</em>).</li>
+        </ul>
+      </section>
+
+      <!-- Section 10 -->
+      <section class="legal-section">
+        <h2>10. Policy Updates</h2>
+        <p>
+          We may update this Privacy Policy from time to time to maintain compliance with updated laws and Google Play Developer Policies. The &ldquo;Effective Date&rdquo; at the top indicates when the latest revision took effect.
+        </p>
+      </section>
+
+      <!-- Section 11 -->
+      <section class="legal-section">
+        <h2>11. Contact Information</h2>
+        <p>
+          If you have questions, inquiries, or feedback concerning this Privacy Policy or DocuPDF's data practices, please contact us:
+        </p>
+        <p>
+          <strong>Developer:</strong> Syed Ahmed<br>
+          <strong>Support Email:</strong> <a href="mailto:syedahmed.sa43@gmail.com">syedahmed.sa43@gmail.com</a><br>
+          <strong>Official Website:</strong> <a href="https://syed-ahmed.in" target="_blank" rel="noopener noreferrer">https://syed-ahmed.in</a><br>
+          <strong>Privacy Policy URL:</strong> <a href="https://syed-ahmed.in/privacy" target="_blank" rel="noopener noreferrer">https://syed-ahmed.in/privacy</a>
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="title">DocuPDF</span>
+          <span class="subtitle">Scanner &amp; PDF Tools for Android</span>
+        </div>
+        <ul class="footer-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Syed Ahmed &bull; DocuPDF. All rights reserved.</p>
+        <p>Support: <a href="mailto:syedahmed.sa43@gmail.com">syedahmed.sa43@gmail.com</a> | Website: <a href="https://syed-ahmed.in">syed-ahmed.in</a></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
