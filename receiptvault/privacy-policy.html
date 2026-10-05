@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReceiptVault — Official Privacy Policy</title>
+  <meta name="description" content="Official Privacy Policy for ReceiptVault (com.receiptvaultapp). Comprehensive disclosures on on-device OCR, local storage, optional Google Drive backups, and AdMob.">
+  <link rel="canonical" href="https://[PRODUCTION_POLICY_DOMAIN]/privacy-policy.html">
+  <link rel="stylesheet" href="./css/style.css">
+  <meta property="og:title" content="ReceiptVault — Privacy Policy">
+  <meta property="og:description" content="Offline-first on-device privacy architecture for receipt scanning and expense tracking.">
+  <meta property="og:type" content="article">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="./index.html" class="brand-link">
+        <div class="brand-logo">
+          <img src="./assets/logo.png" alt="ReceiptVault Logo">
+        </div>
+        <span class="brand-name">ReceiptVault</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="./index.html" class="nav-link">Hub</a></li>
+          <li><a href="./privacy-policy.html" class="nav-link active">Privacy Policy</a></li>
+          <li><a href="./data-safety.html" class="nav-link">Data Safety</a></li>
+          <li><a href="./terms-of-service.html" class="nav-link">Terms</a></li>
+          <li><a href="./security.html" class="nav-link">Security</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="page-header">
+      <div class="page-badge verified">Verified Against Application Code</div>
+      <h1 class="page-title">Privacy Policy</h1>
+      <div class="page-meta">
+        <span>Application: <strong>ReceiptVault</strong></span>
+        <span>Package Name: <strong>com.receiptvaultapp</strong></span>
+        <span>Effective Date: <strong>October 5, 2026</strong></span>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">Summary of Core Privacy Commitments</div>
+      <p>ReceiptVault is built on an uncompromising <strong>on-device privacy architecture</strong>. All text recognition (OCR) executes 100% locally on your phone using Google ML Kit. Receipt photos and financial totals are stored in your device's private sandbox storage. ReceiptVault operates no proprietary backend servers, no cloud databases, and never transmits your receipt photos to external AI services.</p>
+    </div>
+
+    <article class="policy-content">
+      <section id="developer-identity">
+        <h2>1. Operator &amp; Developer Identity</h2>
+        <p>This Privacy Policy governs the <strong>ReceiptVault</strong> native Android mobile application (applicationId: <code>com.receiptvaultapp</code>). ReceiptVault is operated and maintained by:</p>
+        <ul>
+          <li><strong>Developer / Publisher:</strong> Syed Ahmed</li>
+          <li><strong>Primary Privacy Contact:</strong> <a href="mailto:Syedahmed.sa43@gmail.com">Syedahmed.sa43@gmail.com</a></li>
+          <li><strong>Mailing Address / Jurisdiction:</strong> India</li>
+        </ul>
+        <p>If you have any questions regarding this policy or data practices, please contact us directly at the address above.</p>
+      </section>
+
+      <section id="architectural-framework">
+        <h2>2. Data Processing Architecture: Local vs. Transmitted</h2>
+        <p>Google Play Developer Program Policies require clear technical transparency regarding data handling boundaries. ReceiptVault maintains three strictly delineated tiers of processing:</p>
+        
+        <h3>A. Local On-Device Processing (Zero Server Transmission)</h3>
+        <p>The vast majority of app functionality occurs exclusively inside your Android device's hardware sandbox:</p>
+        <ul>
+          <li><strong>Receipt Camera Capture &amp; Document Scanning:</strong> Images captured through CameraX or Google Play Services Document Scanner are saved directly to internal app storage (<code>context.filesDir/receipts</code>).</li>
+          <li><strong>Optical Character Recognition (OCR):</strong> Handled locally by Google ML Kit on-device models. Receipt image bytes never leave device RAM during text extraction.</li>
+          <li><strong>Expense Database:</strong> Merchant names, line items, taxes, totals, and dates are stored locally in an on-device SQLite database managed by Android Jetpack Room.</li>
+          <li><strong>App Lock Security:</strong> Security PINs are hashed locally with a salted SHA-256 digest. Biometric authentication is handled by Android's hardware-backed <code>BiometricPrompt</code>; raw biometric data is never accessible to the app.</li>
+        </ul>
+
+        <h3>B. User-Controlled Optional Cloud Sync (Google Drive)</h3>
+        <p>If you choose to link your personal Google account for automated or manual backups, structured metadata is transmitted directly between your device and Google's servers over secure HTTPS/TLS. <strong>Crucially, receipt images are NEVER included in cloud backups</strong>.</p>
+
+        <h3>C. Third-Party Network Services</h3>
+        <p>ReceiptVault integrates select Google Play ecosystem SDKs for monetization and licensing: Google Play Billing (for lifetime Pro purchase verification) and Google Mobile Ads (AdMob banner ads for free users).</p>
+      </section>
+
+      <section id="data-collection-table">
+        <h2>3. Comprehensive Data Collection &amp; Handling Matrix</h2>
+        <p>The following table audits every data type processed within the application, verified against the actual codebase:</p>
+
+        <div class="table-container">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Data Category</th>
+                <th>Collected by ReceiptVault?</th>
+                <th>Stored Locally?</th>
+                <th>Transmitted to External Servers?</th>
+                <th>Primary Purpose</th>
+                <th>Third Parties with Access</th>
+                <th>User Deletion Method</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Receipt Photos &amp; Images</strong></td>
+                <td>No (User generated)</td>
+                <td>Yes (Internal private disk)</td>
+                <td><strong>Never</strong></td>
+                <td>Displaying receipt scans to user</td>
+                <td>None</td>
+                <td>In-app "Delete Receipt" or "Delete All Data"</td>
+              </tr>
+              <tr>
+                <td><strong>Receipt Text &amp; Line Items</strong></td>
+                <td>Extracted via on-device OCR</td>
+                <td>Yes (Room SQLite)</td>
+                <td>Only if user activates Google Drive backup</td>
+                <td>Expense tracking, search, analytics</td>
+                <td>User's personal Google Drive (if linked)</td>
+                <td>In-app delete or purge backup</td>
+              </tr>
+              <tr>
+                <td><strong>Financial Totals &amp; Tax Data</strong></td>
+                <td>Extracted or user entered</td>
+                <td>Yes (Room SQLite)</td>
+                <td>Only if user activates Google Drive backup</td>
+                <td>Budget tracking and financial summaries</td>
+                <td>User's personal Google Drive (if linked)</td>
+                <td>In-app delete or purge backup</td>
+              </tr>
+              <tr>
+                <td><strong>Camera Sensor Data</strong></td>
+                <td>Temporarily during scanning</td>
+                <td>Saved to file upon confirmation</td>
+                <td><strong>Never</strong></td>
+                <td>Scanning paper receipts</td>
+                <td>None (Processed by ML Kit on device)</td>
+                <td>Delete saved photo</td>
+              </tr>
+              <tr>
+                <td><strong>Security PIN / Biometrics</strong></td>
+                <td>Salted hash only (PIN); Biometric handled by OS</td>
+                <td>Yes (Salted SHA-256 hash in DataStore)</td>
+                <td><strong>Never</strong></td>
+                <td>App lock authentication</td>
+                <td>None (OS secure enclave handles biometrics)</td>
+                <td>Turn App Lock off in Settings</td>
+              </tr>
+              <tr>
+                <td><strong>Google Account Email</strong></td>
+                <td>User authorizes via Google Sign-In</td>
+                <td>Cached in DataStore for session state</td>
+                <td>Sent to Google OAuth for token exchange</td>
+                <td>Authenticating user's personal Google Drive</td>
+                <td>Google LLC (Drive API)</td>
+                <td>Click "Disconnect Google Drive"</td>
+              </tr>
+              <tr>
+                <td><strong>Purchase Token / Pro Status</strong></td>
+                <td>Google Play purchase confirmation</td>
+                <td>Yes (Boolean entitlement flag in DataStore)</td>
+                <td>Sent to Google Play Billing API</td>
+                <td>Unlocking Pro lifetime features and removing ads</td>
+                <td>Google Play (Google LLC)</td>
+                <td>Managed via Google Play Account</td>
+              </tr>
+              <tr>
+                <td><strong>Advertising Identifiers (GAID)</strong></td>
+                <td>Processed by Google Mobile Ads SDK</td>
+                <td>No</td>
+                <td>Transmitted to Google AdMob (Free tier only)</td>
+                <td>Serving banner ads to free tier users</td>
+                <td>Google AdMob / Google LLC</td>
+                <td>Reset GAID in Android Settings or upgrade to Pro</td>
+              </tr>
+              <tr>
+                <td><strong>Calendar Reminders</strong></td>
+                <td>Prefilled via system Intent</td>
+                <td>In user's default calendar</td>
+                <td><strong>Never by ReceiptVault</strong></td>
+                <td>Reminding user of warranty expirations</td>
+                <td>User's calendar provider</td>
+                <td>Delete event from Calendar app</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="google-drive-privacy">
+        <h2>4. Google Drive Backup &amp; Cloud Privacy</h2>
+        <p>ReceiptVault includes an optional cloud backup and restore mechanism that integrates with your personal Google Drive account. The exact technical parameters of this integration are:</p>
+        <ul>
+          <li><strong>Strictly Optional:</strong> Google Drive backup is disabled by default. The app functions completely offline without connecting a Google account.</li>
+          <li><strong>Restricted Scope (<code>drive.file</code>):</strong> ReceiptVault requests authorization strictly for the <code>https://www.googleapis.com/auth/drive.file</code> scope. Under Google's API security model, this permission grants ReceiptVault access <em>only</em> to the files and folders created by ReceiptVault itself. <strong>ReceiptVault has zero technical ability to read, view, modify, or list any other documents, sheets, or photos in your Google Drive</strong>.</li>
+          <li><strong>No Receipt Photos in Backups:</strong> To maximize privacy and minimize bandwidth usage, ReceiptVault backups contain <em>only</em> structured expense metadata (merchant name, transaction date, line items, subtotal, tax, category, notes, and currency). Receipt photo files are permanently excluded from cloud synchronization.</li>
+          <li><strong>Dedicated App Folder:</strong> Backup snapshots are written directly to a dedicated folder in your personal Drive titled <code>ReceiptVault/backups</code>.</li>
+          <li><strong>Three Rolling Snapshots:</strong> ReceiptVault maintains a maximum of three rolling backup points. When a fourth backup is generated, the oldest snapshot is purged automatically.</li>
+          <li><strong>SHA-256 Data Integrity:</strong> Every backup payload is hashed using SHA-256 before transmission and verified upon restoration to prevent data tampering or corruption.</li>
+          <li><strong>User Revocation:</strong> You can disconnect your Google account at any time in ReceiptVault Settings, or revoke app permissions globally at <a href="https://myaccount.google.com/permissions" target="_blank" rel="noopener">Google Account Security Permissions</a>.</li>
+        </ul>
+      </section>
+
+      <section id="ocr-camera-privacy">
+        <h2>5. Camera Sensor &amp; On-Device Optical Character Recognition (OCR)</h2>
+        <p>Receipt scanning is powered by Android CameraX, the Google Play Services Document Scanner API, and Google ML Kit Text Recognition (Latin script):</p>
+        <ul>
+          <li><strong>On-Device Computation:</strong> Text extraction runs entirely on your device's CPU/GPU/NPU using local ML Kit models downloaded to your device through Google Play Services.</li>
+          <li><strong>Zero Cloud Inference:</strong> Receipt image bytes are never streamed, uploaded, or transmitted to any external AI endpoint, LLM server, or cloud vision API.</li>
+          <li><strong>Local Review:</strong> Extracted fields (merchant, total, tax, items) are presented to you in a Review screen where you can edit, correct, or delete any data before saving it to the local database.</li>
+        </ul>
+      </section>
+
+      <section id="advertising-disclosure">
+        <h2>6. Advertising (Google AdMob) Disclosures</h2>
+        <p>ReceiptVault offers a free version supported by advertisements. We disclose the following practices regarding advertising:</p>
+        <ul>
+          <li><strong>Google Mobile Ads SDK:</strong> The free tier displays banner advertisements provided by Google AdMob (Production Banner Ad Unit: <code>ca-app-pub-4722357842313097/1488852153</code>).</li>
+          <li><strong>Data Processed by AdMob:</strong> Google AdMob may process device identifiers (including Google Advertising ID / GAID), coarse location based on IP address, app performance metrics, and ad interaction data in accordance with <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>.</li>
+          <li><strong>Zero Financial Data Sharing:</strong> ReceiptVault <strong>never</strong> shares your receipt data, scanned items, store names, or expense amounts with AdMob or any advertising network.</li>
+          <li><strong>Ad-Free Pro Upgrade:</strong> Users who purchase the ReceiptVault Pro lifetime license (or redeem an authorized developer promo code) have all advertisements completely disabled via an application-level entitlement check (<code>shouldShowAds() == false</code>).</li>
+        </ul>
+      </section>
+
+      <section id="billing-purchases">
+        <h2>7. Google Play In-App Billing</h2>
+        <p>ReceiptVault Pro is offered as a single, one-time lifetime in-app purchase (Product ID: <code>receiptvault_pro_lifetime</code>):</p>
+        <ul>
+          <li><strong>No Recurring Subscriptions:</strong> Pro is a non-consumable, one-time payment. There are no recurring subscription fees, automatic renewals, or hidden charges.</li>
+          <li><strong>Payment Processing by Google Play:</strong> All transactions are executed through the Google Play Billing Client. ReceiptVault never collects, receives, stores, or processes your credit card numbers, bank details, or billing addresses.</li>
+          <li><strong>Entitlement Verification:</strong> ReceiptVault receives only a cryptographic purchase token from Google Play confirming that your account owns the Pro entitlement, which is cached locally in encrypted DataStore.</li>
+        </ul>
+      </section>
+
+      <section id="calendar-privacy">
+        <h2>8. Calendar Reminder Integration</h2>
+        <p>ReceiptVault allows you to set optional calendar reminders (such as 1-year warranty expiration or 30-day review reminders):</p>
+        <ul>
+          <li><strong>System Intent Mechanism:</strong> Reminders are created using Android's standard <code>Intent.ACTION_INSERT</code> directed to <code>CalendarContract.Events.CONTENT_URI</code>.</li>
+          <li><strong>No Calendar Reading:</strong> The app opens your default calendar app with pre-filled title and details for your manual confirmation. ReceiptVault does not read, index, or harvest existing calendar events.</li>
+        </ul>
+      </section>
+
+      <section id="data-retention-deletion">
+        <h2>9. Data Retention &amp; Deletion</h2>
+        <p>We respect your right to complete data autonomy:</p>
+        <ul>
+          <li><strong>Local Data Retention:</strong> Local receipts and images remain on your device indefinitely until you choose to delete individual entries or use "Delete All Data".</li>
+          <li><strong>Immediate Deletion:</strong> Deleting a receipt immediately purges its SQLite database record and deletes its corresponding <code>.jpg</code> photo file from disk storage.</li>
+          <li><strong>Uninstalling the App:</strong> Uninstalling ReceiptVault from your Android device instantly deletes all internal sandbox data, including all receipt images, the Room SQLite database, and local preferences.</li>
+          <li><strong>Drive Backups:</strong> Uninstalling the app does not automatically delete backups already stored in your private Google Drive account. You can purge backups inside the app before uninstalling, or delete the <code>ReceiptVault/backups</code> folder directly at <a href="https://drive.google.com" target="_blank" rel="noopener">drive.google.com</a>.</li>
+          <li><strong>Account Deletion:</strong> Because ReceiptVault does not require or operate user accounts, there is no account to delete.</li>
+        </ul>
+      </section>
+
+      <section id="children-privacy">
+        <h2>10. Children's Privacy</h2>
+        <p>ReceiptVault is a financial productivity and expense tracking utility intended for general audiences. It is not directed toward children under the age of 13 (or under 16 in the European Union). We do not knowingly collect personal information from children.</p>
+      </section>
+
+      <section id="policy-updates">
+        <h2>11. Policy Changes &amp; Notifications</h2>
+        <p>We may update this Privacy Policy from time to time to reflect technical updates, operating system changes, or evolving legal requirements. Material updates will be documented on this page with an updated Effective Date. We encourage users to periodically review this page.</p>
+      </section>
+
+      <section id="contact-info">
+        <h2>12. Privacy Inquiries &amp; Contact Information</h2>
+        <p>To exercise your privacy rights, request assistance with data deletion, or ask technical questions regarding our privacy architecture, please contact:</p>
+        <div class="callout success">
+          <p><strong>ReceiptVault Privacy Team</strong></p>
+          <p>Email: <a href="mailto:Syedahmed.sa43@gmail.com">Syedahmed.sa43@gmail.com</a></p>
+          <p>Developer: Syed Ahmed</p>
+          <p>Jurisdiction: India</p>
+        </div>
+      </section>
+    </article>
+
+    <div class="disclaimer-box">
+      <strong>Notice:</strong> This policy has been prepared specifically for ReceiptVault (<code>com.receiptvaultapp</code>) based on verified source code implementation to satisfy Google Play Developer Program Policies and User Data requirements.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./data-safety.html">Data Safety</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./account-data-deletion.html">Data Deletion</a>
+        <a href="./security.html">Security</a>
+        <a href="./third-party-services.html">Third-Party Services</a>
+        <a href="./refund-and-cancellation.html">Refunds</a>
+        <a href="./cookie-policy.html">Cookie Policy</a>
+        <a href="./acceptable-use-policy.html">Acceptable Use</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 ReceiptVault. All rights reserved. Package: <code>com.receiptvaultapp</code></div>
+        <div>Target API: Android 16 (API 36) • On-Device Native Android</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

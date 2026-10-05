@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReceiptVault — Verified Third-Party Services &amp; SDKs</title>
+  <meta name="description" content="Audited inventory of verified third-party libraries, SDKs, and external integrations in ReceiptVault (com.receiptvaultapp).">
+  <link rel="canonical" href="https://[PRODUCTION_POLICY_DOMAIN]/third-party-services.html">
+  <link rel="stylesheet" href="./css/style.css">
+  <meta property="og:title" content="ReceiptVault — Third-Party Services Directory">
+  <meta property="og:description" content="Audited inventory of third-party SDKs and dependencies in ReceiptVault.">
+  <meta property="og:type" content="article">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="./index.html" class="brand-link">
+        <div class="brand-logo">
+          <img src="./assets/logo.png" alt="ReceiptVault Logo">
+        </div>
+        <span class="brand-name">ReceiptVault</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="./index.html" class="nav-link">Hub</a></li>
+          <li><a href="./privacy-policy.html" class="nav-link">Privacy Policy</a></li>
+          <li><a href="./data-safety.html" class="nav-link">Data Safety</a></li>
+          <li><a href="./terms-of-service.html" class="nav-link">Terms</a></li>
+          <li><a href="./security.html" class="nav-link">Security</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="page-header">
+      <div class="page-badge verified">Verified SDK Audit • Zero Unknown Trackers</div>
+      <h1 class="page-title">Third-Party Services &amp; SDK Directory</h1>
+      <div class="page-meta">
+        <span>Application: <strong>ReceiptVault</strong></span>
+        <span>Package Name: <strong>com.receiptvaultapp</strong></span>
+        <span>Audited Date: <strong>October 5, 2026</strong></span>
+      </div>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-title">Exhaustive Codebase Audit Guarantee</div>
+      <p>This inventory represents the complete, verified list of third-party service SDKs and external integrations bundled into ReceiptVault. <strong>ReceiptVault does NOT bundle Firebase, Supabase, Facebook SDK, Sentry, Mixpanel, Amplitude, AppsFlyer, or external cloud AI APIs (such as OpenAI or Gemini)</strong>.</p>
+    </div>
+
+    <article class="policy-content">
+      <section id="sdk-inventory">
+        <h2>1. Verified Third-Party SDK Inventory</h2>
+
+        <div class="table-container">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Service / SDK</th>
+                <th>Provider</th>
+                <th>Bundled Library</th>
+                <th>Purpose in App</th>
+                <th>Privacy Policy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Google ML Kit Text Recognition</strong></td>
+                <td>Google LLC</td>
+                <td><code>play-services-mlkit-text-recognition</code></td>
+                <td>On-device Optical Character Recognition (OCR) to extract receipt text locally.</td>
+                <td><a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener">ML Kit Terms</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google ML Kit Document Scanner</strong></td>
+                <td>Google LLC</td>
+                <td><code>play-services-mlkit-document-scanner</code></td>
+                <td>Interactive document perspective correction and boundary cropping on device.</td>
+                <td><a href="https://developers.google.com/ml-kit/terms" target="_blank" rel="noopener">ML Kit Terms</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Play Billing Client</strong></td>
+                <td>Google LLC</td>
+                <td><code>com.android.billingclient:billing</code></td>
+                <td>Processes one-time in-app purchases for ReceiptVault Pro lifetime license.</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Mobile Ads (AdMob)</strong></td>
+                <td>Google LLC</td>
+                <td><code>play-services-ads</code></td>
+                <td>Serves banner advertisements to free-tier users. Disabled for Pro users.</td>
+                <td><a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">Google Ads Policy</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Drive REST API</strong></td>
+                <td>Google LLC</td>
+                <td><code>google-api-services-drive</code></td>
+                <td>Optional backup and restoration of structured receipt JSON to user's Drive.</td>
+                <td><a href="https://developers.google.com/drive/api/guides/api-specific-auth" target="_blank" rel="noopener">Drive API Terms</a></td>
+              </tr>
+              <tr>
+                <td><strong>Google Sign-In / Identity</strong></td>
+                <td>Google LLC</td>
+                <td><code>play-services-auth</code></td>
+                <td>OAuth 2.0 authorization to grant app-specific <code>drive.file</code> scope access.</td>
+                <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy</a></td>
+              </tr>
+              <tr>
+                <td><strong>AndroidX Jetpack &amp; CameraX</strong></td>
+                <td>Google / Android Open Source</td>
+                <td><code>camera-camera2</code>, <code>room</code>, <code>datastore</code>, <code>work-runtime</code></td>
+                <td>Core Android architecture components for offline database, preferences, and background work.</td>
+                <td><a href="https://developer.android.com" target="_blank" rel="noopener">Android Open Source</a></td>
+              </tr>
+              <tr>
+                <td><strong>Coil Image Loading</strong></td>
+                <td>Coil Contributors (Open Source)</td>
+                <td><code>io.coil-kt:coil-compose</code></td>
+                <td>Asynchronously loads and caches local receipt image files from internal storage to UI.</td>
+                <td><a href="https://coil-kt.github.io/coil/" target="_blank" rel="noopener">Coil Open Source</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="non-present-services">
+        <h2>2. Services Explicitly NOT Present</h2>
+        <p>To eliminate ambiguity for Google Play reviewers and users, the following commonly used services are <strong>NOT bundled, NOT integrated, and NOT utilized</strong> by ReceiptVault:</p>
+        <ul>
+          <li><strong>No Cloud AI Services:</strong> OpenAI, Anthropic, Google Gemini API, or external cloud computer vision endpoints.</li>
+          <li><strong>No Backend Databases:</strong> Firebase Firestore, Supabase, AWS DynamoDB, MongoDB Atlas, or custom REST API backends.</li>
+          <li><strong>No Analytics SDKs:</strong> Firebase Analytics, Google Analytics for Firebase, Mixpanel, Amplitude, Segment, or Flurry.</li>
+          <li><strong>No Crash Reporting Trackers:</strong> Firebase Crashlytics, Sentry, Bugsnag, or Datadog.</li>
+          <li><strong>No Social Media SDKs:</strong> Facebook Login/Graph API, Twitter/X SDK, TikTok SDK.</li>
+        </ul>
+      </section>
+
+      <section id="third-party-contact">
+        <h2>3. Inquiries Regarding Integrations</h2>
+        <p>For technical inquiries regarding the SDKs utilized in ReceiptVault, please contact:</p>
+        <div class="callout info">
+          <p>Email: <a href="mailto:Syedahmed.sa43@gmail.com">Syedahmed.sa43@gmail.com</a></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./data-safety.html">Data Safety</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./account-data-deletion.html">Data Deletion</a>
+        <a href="./security.html">Security</a>
+        <a href="./third-party-services.html">Third-Party Services</a>
+        <a href="./refund-and-cancellation.html">Refunds</a>
+        <a href="./cookie-policy.html">Cookie Policy</a>
+        <a href="./acceptable-use-policy.html">Acceptable Use</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 ReceiptVault. All rights reserved. Package: <code>com.receiptvaultapp</code></div>
+        <div>Target API: Android 16 (API 36) • On-Device Native Android</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

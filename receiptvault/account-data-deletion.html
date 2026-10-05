@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReceiptVault — Data Deletion &amp; Account Information</title>
+  <meta name="description" content="Technical instructions for deleting receipt photos, database records, and Google Drive backups for ReceiptVault (com.receiptvaultapp).">
+  <link rel="canonical" href="https://[PRODUCTION_POLICY_DOMAIN]/account-data-deletion.html">
+  <link rel="stylesheet" href="./css/style.css">
+  <meta property="og:title" content="ReceiptVault — Data Deletion &amp; Account Protocol">
+  <meta property="og:description" content="Step-by-step instructions for deleting all data from ReceiptVault.">
+  <meta property="og:type" content="article">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="./index.html" class="brand-link">
+        <div class="brand-logo">
+          <img src="./assets/logo.png" alt="ReceiptVault Logo">
+        </div>
+        <span class="brand-name">ReceiptVault</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="./index.html" class="nav-link">Hub</a></li>
+          <li><a href="./privacy-policy.html" class="nav-link">Privacy Policy</a></li>
+          <li><a href="./data-safety.html" class="nav-link">Data Safety</a></li>
+          <li><a href="./terms-of-service.html" class="nav-link">Terms</a></li>
+          <li><a href="./security.html" class="nav-link">Security</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="page-header">
+      <div class="page-badge verified">User Data Autonomy Protocol</div>
+      <h1 class="page-title">Data Deletion &amp; Account Information</h1>
+      <div class="page-meta">
+        <span>Application: <strong>ReceiptVault</strong></span>
+        <span>Package Name: <strong>com.receiptvaultapp</strong></span>
+        <span>Compliance: <strong>Google Play User Data Policy</strong></span>
+      </div>
+    </div>
+
+    <div class="callout info">
+      <div class="callout-title">Notice on Account Creation &amp; Google Play Policy</div>
+      <p><strong>ReceiptVault does not feature an account creation system.</strong> You are never asked to register, create a username, set a password, or maintain a cloud profile. Because no developer-managed accounts exist, Google Play's "App Account Deletion" URL requirement is technically not applicable. You retain complete, direct physical control over your data on your Android device.</p>
+    </div>
+
+    <article class="policy-content">
+      <section id="how-to-delete">
+        <h2>1. How to Delete Your Receipt Data</h2>
+        <p>You have full autonomy to delete your data at any time using the following options:</p>
+
+        <h3>Option A: Delete an Individual Receipt</h3>
+        <ol>
+          <li>Open <strong>ReceiptVault</strong> on your Android device.</li>
+          <li>Navigate to the <strong>Receipts</strong> tab and tap on the receipt you wish to remove.</li>
+          <li>Tap the <strong>Delete</strong> (trash can) icon in the top app bar.</li>
+          <li>Confirm the deletion prompt.</li>
+        </ol>
+        <p><strong>Technical Effect:</strong> The receipt record and all associated line items are permanently deleted from the local Room SQLite database. If a receipt photo was saved, the physical <code>.jpg</code> file is permanently erased from internal storage (<code>context.filesDir/receipts</code>) immediately.</p>
+
+        <h3>Option B: Erase All Local Data (Nuclear Option)</h3>
+        <ol>
+          <li>Open <strong>ReceiptVault</strong>.</li>
+          <li>Tap the <strong>Settings</strong> icon.</li>
+          <li>Scroll to the <strong>Data &amp; Privacy</strong> section and tap <strong>Delete All Data</strong>.</li>
+          <li>Confirm the warning dialog.</li>
+        </ol>
+        <p><strong>Technical Effect:</strong> The application executes a complete recursive purge of the <code>receipts</code> directory on internal storage, wipes all rows from all Room SQLite tables (receipts, line items, backup metadata), and resets local preference flags.</p>
+
+        <h3>Option C: Delete Data via Android Operating System</h3>
+        <ol>
+          <li>Open your device's <strong>Settings</strong> app.</li>
+          <li>Go to <strong>Apps</strong> &gt; <strong>ReceiptVault</strong>.</li>
+          <li>Tap <strong>Storage &amp; cache</strong>.</li>
+          <li>Tap <strong>Clear storage</strong> (or <strong>Clear data</strong>).</li>
+        </ol>
+        <p><strong>Technical Effect:</strong> The Android operating system immediately destroys all data within the application's private sandbox directory, restoring the app to its fresh install state.</p>
+      </section>
+
+      <section id="deleting-drive-backups">
+        <h2>2. How to Delete Google Drive Backups</h2>
+        <p>If you enabled optional Google Drive backups, backup snapshots reside in your personal Google Drive account under the <code>ReceiptVault/backups</code> folder. You can remove them using either method:</p>
+
+        <h3>Method 1: From Inside ReceiptVault</h3>
+        <ol>
+          <li>Open <strong>ReceiptVault</strong> &gt; <strong>Settings</strong>.</li>
+          <li>Under <strong>Cloud Backup</strong>, tap <strong>Disconnect Google Drive</strong>.</li>
+          <li>Confirm disconnection. The app clears its cached Google OAuth session token immediately.</li>
+        </ol>
+
+        <h3>Method 2: Directly via Google Drive (Web or Mobile)</h3>
+        <ol>
+          <li>Open <a href="https://drive.google.com" target="_blank" rel="noopener">Google Drive</a> in your web browser or app.</li>
+          <li>Search for or navigate to the <code>ReceiptVault</code> folder.</li>
+          <li>Select the <code>backups</code> folder (or specific <code>.json</code> snapshot files) and select <strong>Delete / Move to Trash</strong>.</li>
+          <li>Empty your Google Drive Trash to permanently purge the files.</li>
+        </ol>
+      </section>
+
+      <section id="uninstall-effects">
+        <h2>3. What Happens When You Uninstall ReceiptVault</h2>
+        <ul>
+          <li><strong>Local Data:</strong> Completely destroyed. Android OS automatically deletes the entire private data directory (<code>/data/user/0/com.receiptvaultapp</code>), including all receipt photos and the SQLite database.</li>
+          <li><strong>Google Drive Backups:</strong> Remain safely inside your personal Google Drive until you manually delete them or overwrite them. ReceiptVault loses all ability to interact with your Drive upon uninstallation.</li>
+          <li><strong>Pro Purchases:</strong> Your lifetime Pro purchase entitlement is tied to your Google Play account (Google Account). If you reinstall ReceiptVault in the future, your Pro license will restore automatically via Google Play Billing.</li>
+        </ul>
+      </section>
+
+      <section id="assistance">
+        <h2>4. Data Deletion Support</h2>
+        <p>If you experience any technical difficulties deleting your data or need assistance with Google Drive backup cleanup, contact us at:</p>
+        <div class="callout success">
+          <p>Email: <a href="mailto:Syedahmed.sa43@gmail.com">Syedahmed.sa43@gmail.com</a></p>
+          <p>Subject Line: <em>Data Deletion Request — ReceiptVault</em></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./data-safety.html">Data Safety</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./account-data-deletion.html">Data Deletion</a>
+        <a href="./security.html">Security</a>
+        <a href="./third-party-services.html">Third-Party Services</a>
+        <a href="./refund-and-cancellation.html">Refunds</a>
+        <a href="./cookie-policy.html">Cookie Policy</a>
+        <a href="./acceptable-use-policy.html">Acceptable Use</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 ReceiptVault. All rights reserved. Package: <code>com.receiptvaultapp</code></div>
+        <div>Target API: Android 16 (API 36) • On-Device Native Android</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

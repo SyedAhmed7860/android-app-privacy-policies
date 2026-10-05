@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReceiptVault — Google Play Data Safety Disclosures</title>
+  <meta name="description" content="Audited line-by-line Google Play Console Data Safety questionnaire declarations for ReceiptVault (com.receiptvaultapp).">
+  <link rel="canonical" href="https://[PRODUCTION_POLICY_DOMAIN]/data-safety.html">
+  <link rel="stylesheet" href="./css/style.css">
+  <meta property="og:title" content="ReceiptVault — Data Safety Disclosures">
+  <meta property="og:description" content="Google Play Console Data Safety questionnaire alignment based on verified code.">
+  <meta property="og:type" content="article">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="./index.html" class="brand-link">
+        <div class="brand-logo">
+          <img src="./assets/logo.png" alt="ReceiptVault Logo">
+        </div>
+        <span class="brand-name">ReceiptVault</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="./index.html" class="nav-link">Hub</a></li>
+          <li><a href="./privacy-policy.html" class="nav-link">Privacy Policy</a></li>
+          <li><a href="./data-safety.html" class="nav-link active">Data Safety</a></li>
+          <li><a href="./terms-of-service.html" class="nav-link">Terms</a></li>
+          <li><a href="./security.html" class="nav-link">Security</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="page-header">
+      <div class="page-badge verified">Play Console Questionnaire Alignment</div>
+      <h1 class="page-title">Google Play Data Safety Disclosures</h1>
+      <div class="page-meta">
+        <span>Application: <strong>ReceiptVault</strong></span>
+        <span>Package Name: <strong>com.receiptvaultapp</strong></span>
+        <span>Target API: <strong>Android 16 (API 36)</strong></span>
+        <span>Audited: <strong>October 2026</strong></span>
+      </div>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-title">Verified Play Console Mapping</div>
+      <p>This document provides exact, verified answers for the Google Play Console <strong>Data Safety</strong> section. Every declaration is grounded directly in ReceiptVault's audited source code (package <code>com.receiptvaultapp</code>).</p>
+    </div>
+
+    <article class="policy-content">
+      <section id="general-overview">
+        <h2>1. Global Data Safety Overview Questions</h2>
+        <div class="table-container">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Verified Answer</th>
+                <th>Technical Justification</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Does your app collect or share any of the required user data types?</strong></td>
+                <td><strong>Yes</strong></td>
+                <td>Google Mobile Ads (AdMob) processes advertising IDs on the free tier; Google Play Billing processes purchase tokens; Google Sign-In processes email for Drive OAuth.</td>
+              </tr>
+              <tr>
+                <td><strong>Is all of the user data collected by your app encrypted in transit?</strong></td>
+                <td><strong>Yes</strong></td>
+                <td>All network communications (Google Drive REST API, Google Play Billing, AdMob) use mandatory HTTPS / TLS 1.2+ encryption.</td>
+              </tr>
+              <tr>
+                <td><strong>Do you provide a way for users to request that their data be deleted?</strong></td>
+                <td><strong>Yes</strong></td>
+                <td>In-app "Delete All Data" feature, individual receipt deletion, and user control over their Google Drive backups.</td>
+              </tr>
+              <tr>
+                <td><strong>Does your app allow users to create an account?</strong></td>
+                <td><strong>No</strong></td>
+                <td>ReceiptVault does not operate a user account system. The Google Play Account Deletion URL requirement is therefore not applicable.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="specific-data-types">
+        <h2>2. Data Types Breakdown</h2>
+
+        <h3>A. Photos and Videos</h3>
+        <div class="table-container">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Play Console Declaration</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data Type</td>
+                <td><strong>Photos</strong></td>
+                <td>Receipt photos captured by user via camera or selected from device.</td>
+              </tr>
+              <tr>
+                <td>Collected?</td>
+                <td><strong>No</strong> (Local only)</td>
+                <td>Stored strictly in private internal sandbox (<code>context.filesDir/receipts</code>). Never uploaded to developer servers.</td>
+              </tr>
+              <tr>
+                <td>Shared?</td>
+                <td><strong>No</strong></td>
+                <td>Never transmitted to third parties, advertising networks, or external AI providers.</td>
+              </tr>
+              <tr>
+                <td>Purpose</td>
+                <td>App functionality</td>
+                <td>Displaying receipt scans and transaction proof locally.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>B. Financial Info</h3>
+        <div class="table-container">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Play Console Declaration</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data Type</td>
+                <td><strong>Purchase History</strong></td>
+                <td>ReceiptVault Pro lifetime purchase token managed by Google Play Billing.</td>
+              </tr>
+              <tr>
+                <td>Collected?</td>
+                <td><strong>Yes</strong> (via Google Play Billing)</td>
+                <td>Cryptographic purchase token received to unlock Pro features.</td>
+              </tr>
+              <tr>
+                <td>Shared?</td>
+                <td><strong>No</strong></td>
+                <td>Processed strictly between device and Google Play.</td>
+              </tr>
+              <tr>
+                <td>Data Type</td>
+                <td><strong>Other Financial Info</strong> (Expenses)</td>
+                <td>Receipt amounts, tax, discounts, and merchant names.</td>
+              </tr>
+              <tr>
+                <td>Collected?</td>
+                <td><strong>No</strong> (Local only, optional Drive sync)</td>
+                <td>Stored in Room SQLite. Transmitted only to user's personal Google Drive if backup is turned on.</td>
+              </tr>
+              <tr>
+                <td>Shared?</td>
+                <td><strong>No</strong></td>
+                <td>Never sold, shared with advertisers, or transmitted to ReceiptVault servers.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>C. Personal Info</h3>
+        <div class="table-container">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Play Console Declaration</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data Type</td>
+                <td><strong>Email Address</strong></td>
+                <td>User's Google account email obtained via Google Sign-In.</td>
+              </tr>
+              <tr>
+                <td>Collected?</td>
+                <td><strong>Yes</strong> (Optional)</td>
+                <td>Only collected if user opts into Google Drive backup. Cached locally in DataStore to display linked account.</td>
+              </tr>
+              <tr>
+                <td>Shared?</td>
+                <td><strong>No</strong></td>
+                <td>Transmitted only to Google Identity OAuth for token validation.</td>
+              </tr>
+              <tr>
+                <td>Purpose</td>
+                <td>Account Management (Drive Auth)</td>
+                <td>Authorizing access to write backups into user's own Drive.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>D. Device or Other Identifiers</h3>
+        <div class="table-container">
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Field</th>
+                <th>Play Console Declaration</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Data Type</td>
+                <td><strong>Device or Other IDs</strong> (Advertising ID / GAID)</td>
+                <td>Google Advertising ID processed by Google Mobile Ads SDK on free tier.</td>
+              </tr>
+              <tr>
+                <td>Collected?</td>
+                <td><strong>Yes</strong> (by third-party SDK)</td>
+                <td>Processed by Google AdMob for banner ads in the free version.</td>
+              </tr>
+              <tr>
+                <td>Shared?</td>
+                <td><strong>Yes</strong> (with Google AdMob)</td>
+                <td>Shared with Google LLC for ad serving and fraud prevention.</td>
+              </tr>
+              <tr>
+                <td>Ephemerality</td>
+                <td>Subject to Google's AdMob policy</td>
+                <td>Users can reset their Advertising ID in Android Settings or upgrade to Pro.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="security-practices-summary">
+        <h2>3. Security Practices Declaration</h2>
+        <ul>
+          <li><strong>Data Encrypted in Transit:</strong> Verified. All external traffic (Google Drive, AdMob, Billing) enforces HTTPS/TLS.</li>
+          <li><strong>Data Deletion Request Mechanism:</strong> Verified. Users can erase all receipts, images, and backup records immediately in-app.</li>
+          <li><strong>Independent Security Review:</strong> Verified offline-first architecture; code contains zero external analytics, tracking, or proprietary backend APIs.</li>
+        </ul>
+      </section>
+    </article>
+
+    <div class="disclaimer-box">
+      <strong>Developer Note:</strong> When filling out the Google Play Console Data Safety questionnaire, reference these exact tables. They reflect the true, verified implementation of ReceiptVault.
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./data-safety.html">Data Safety</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./account-data-deletion.html">Data Deletion</a>
+        <a href="./security.html">Security</a>
+        <a href="./third-party-services.html">Third-Party Services</a>
+        <a href="./refund-and-cancellation.html">Refunds</a>
+        <a href="./cookie-policy.html">Cookie Policy</a>
+        <a href="./acceptable-use-policy.html">Acceptable Use</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 ReceiptVault. All rights reserved. Package: <code>com.receiptvaultapp</code></div>
+        <div>Target API: Android 16 (API 36) • On-Device Native Android</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

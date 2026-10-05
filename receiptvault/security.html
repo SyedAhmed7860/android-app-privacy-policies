@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReceiptVault — Security Architecture &amp; Data Protection</title>
+  <meta name="description" content="Technical security practices, cryptographic hashing, and local sandboxing controls implemented in ReceiptVault (com.receiptvaultapp).">
+  <link rel="canonical" href="https://[PRODUCTION_POLICY_DOMAIN]/security.html">
+  <link rel="stylesheet" href="./css/style.css">
+  <meta property="og:title" content="ReceiptVault — Security Architecture">
+  <meta property="og:description" content="Technical security controls, SHA-256 hashing, and Android sandboxing in ReceiptVault.">
+  <meta property="og:type" content="article">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="./index.html" class="brand-link">
+        <div class="brand-logo">
+          <img src="./assets/logo.png" alt="ReceiptVault Logo">
+        </div>
+        <span class="brand-name">ReceiptVault</span>
+      </a>
+      <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="./index.html" class="nav-link">Hub</a></li>
+          <li><a href="./privacy-policy.html" class="nav-link">Privacy Policy</a></li>
+          <li><a href="./data-safety.html" class="nav-link">Data Safety</a></li>
+          <li><a href="./terms-of-service.html" class="nav-link">Terms</a></li>
+          <li><a href="./security.html" class="nav-link active">Security</a></li>
+          <li><a href="./contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content-wrapper">
+    <div class="page-header">
+      <div class="page-badge verified">Audited Technical Security Controls</div>
+      <h1 class="page-title">Security Architecture &amp; Data Protection</h1>
+      <div class="page-meta">
+        <span>Application: <strong>ReceiptVault</strong></span>
+        <span>Package Name: <strong>com.receiptvaultapp</strong></span>
+        <span>Platform: <strong>Native Android 8.0+ to Android 16 (API 36)</strong></span>
+      </div>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-title">Grounded Security Transparency</div>
+      <p>We do not make exaggerated claims such as "military-grade encryption" or "uncrackable systems." Below is an exact technical breakdown of the defensive architectural mechanisms and cryptographic controls physically implemented in ReceiptVault's source code.</p>
+    </div>
+
+    <article class="policy-content">
+      <section id="local-sandbox">
+        <h2>1. Android Application Sandboxing</h2>
+        <p>ReceiptVault relies on the core Linux kernel process isolation and application sandboxing inherent to the Android operating system:</p>
+        <ul>
+          <li><strong>Unique Linux UID:</strong> Each installation of ReceiptVault is assigned a distinct user identifier (UID) by the Android OS. Other applications on your phone run under separate UIDs and are strictly prohibited from reading or executing files belonging to ReceiptVault.</li>
+          <li><strong>Internal Storage Isolation:</strong> Receipt images are stored in <code>context.filesDir/receipts</code> (physically located at <code>/data/user/0/com.receiptvaultapp/files/receipts</code>). This directory has file system permissions set to private (read/write only by ReceiptVault's UID).</li>
+          <li><strong>No External Storage Leakage:</strong> Receipt images are never written to shared public directories (such as <code>/sdcard/Download</code> or public photo galleries) unless you explicitly initiate an export action.</li>
+        </ul>
+      </section>
+
+      <section id="pin-biometric-security">
+        <h2>2. App Lock Security: Salted SHA-256 &amp; Biometrics</h2>
+        <p>ReceiptVault features an optional App Lock mechanism (PIN or Biometric authentication):</p>
+        <ul>
+          <li><strong>Salted Cryptographic Hashing:</strong> Security PINs are hashed using the SHA-256 cryptographic digest combined with a unique application salt prior to storage. Plaintext PINs are never saved to disk, never cached in memory, and never logged.</li>
+          <li><strong>Android Hardware Biometrics:</strong> Biometric authentication is implemented via the official <code>androidx.biometric.BiometricPrompt</code> library. <strong>ReceiptVault never accesses, receives, or stores your raw fingerprint or facial recognition data</strong>. Authentication is verified inside the Android device's hardware Secure Enclave / Trusted Execution Environment (TEE), which returns a binary authorization result to the app.</li>
+          <li><strong>Configurable Auto-Lock:</strong> Users can configure immediate re-locking or background timeouts (15 seconds, 1 minute, 5 minutes) via the security manager.</li>
+        </ul>
+      </section>
+
+      <section id="backup-integrity">
+        <h2>3. SHA-256 Backup Payload Integrity Validation</h2>
+        <p>To guard against data tampering, bit-rot, and corrupted file imports during cloud synchronization:</p>
+        <ul>
+          <li><strong>Pre-Upload Hashing:</strong> Before a backup snapshot is serialized and written to Google Drive, ReceiptVault computes a SHA-256 cryptographic checksum of the JSON payload.</li>
+          <li><strong>Verification on Restore:</strong> Upon restoring a backup, the payload is reconstructed, re-hashed, and compared against the recorded checksum. If a hash mismatch is detected, the restoration process halts immediately with an error, preventing corrupt or tampered records from entering your database.</li>
+        </ul>
+      </section>
+
+      <section id="google-drive-scope">
+        <h2>4. OAuth 2.0 &amp; Restricted Google Drive Scope</h2>
+        <p>ReceiptVault's Google Drive integration enforces strict least-privilege principles:</p>
+        <ul>
+          <li><strong>Restricted Scope (<code>drive.file</code>):</strong> We request only <code>https://www.googleapis.com/auth/drive.file</code> access. ReceiptVault cannot view, modify, or list files outside the <code>ReceiptVault</code> folder it creates.</li>
+          <li><strong>Zero Photo Upload:</strong> The backup serializer strictly excludes local image file paths and image binary data. Only structured expense metadata is synchronized.</li>
+          <li><strong>Secure Token Management:</strong> OAuth tokens are obtained via official Google Play Services Identity and exchanged exclusively with Google's servers over secure HTTPS/TLS.</li>
+        </ul>
+      </section>
+
+      <section id="network-security">
+        <h2>5. Transport Layer Security (TLS/HTTPS)</h2>
+        <p>Every network transaction executed by ReceiptVault (communicating with Google Drive, Google Play Billing, or Google Mobile Ads) enforces TLS 1.2+ encryption in transit. Cleartext HTTP traffic is disabled.</p>
+      </section>
+
+      <section id="security-contact">
+        <h2>6. Security Vulnerability Reporting</h2>
+        <p>We welcome responsible security disclosures. If you discover a potential vulnerability in ReceiptVault, please contact our security team:</p>
+        <div class="callout info">
+          <p>Email: <a href="mailto:Syedahmed.sa43@gmail.com">Syedahmed.sa43@gmail.com</a></p>
+          <p>Subject: <em>Vulnerability Report — ReceiptVault</em></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-nav">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./data-safety.html">Data Safety</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./account-data-deletion.html">Data Deletion</a>
+        <a href="./security.html">Security</a>
+        <a href="./third-party-services.html">Third-Party Services</a>
+        <a href="./refund-and-cancellation.html">Refunds</a>
+        <a href="./cookie-policy.html">Cookie Policy</a>
+        <a href="./acceptable-use-policy.html">Acceptable Use</a>
+        <a href="./contact.html">Contact</a>
+      </div>
+      <div class="footer-bottom">
+        <div>&copy; 2026 ReceiptVault. All rights reserved. Package: <code>com.receiptvaultapp</code></div>
+        <div>Target API: Android 16 (API 36) • On-Device Native Android</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>
